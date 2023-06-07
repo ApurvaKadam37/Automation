@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./externallink.css" />
+  </head>
+  <body>
+    <h1>External link validator</h1>
+    <div class="main-container">
+      <div class="container">
+        <label for="inputLink"> Please Enter the Url</label>
+          <br /><br />
+           <input type="text" value="" id="inputLink" placeholder=" Eg :- https://www.talentigelato.com/us/en "/>
+        <button type="submit" class="start-utility" id="runUtility">Run</button>
+        <p id="message"></p>
+      </div>
+      <br /><br />
+      <div class="sub-container">
+        <h2 id="chartTitle"></h2>
+        <canvas id="myChart"></canvas>
+        <br /><br />
+        <h2 id="title"></h2>
+        <ul id="dynamicTable"></ul>
+        <ol id="externalLinkList"></ol>  
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="module" src="./externallink.js"></script>
+  </body>
+</html>

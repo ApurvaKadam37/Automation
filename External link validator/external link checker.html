@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./externallink.css" />
+  
+  </head>
+  <body>
+    <h1>External link validator</h1>
+    <div class="main-container">
+      <div class="container">
+        <label for="inputLink"> Please Enter the Url </label>
+          <br /><br />
+           <input type="text" value="https://www.lifebuoy.in/sitemap.xml
+           " id="inputLink" placeholder=" Eg :- https://www.lifebuoy.in/sitemap.xml " />
+           <button id="clearField">Clear</button>
+        <button type="submit" class="start-utility" id="runUtility">Run</button>
+        <button id="download">Download the list now</button>
+       
+        <p id="message"></p>
+      </div>
+      <br /><br />
+      <div class="sub-container">
+        <h2 id="chartTitle"></h2>
+        <canvas id="myChart"></canvas>
+        <br /><br />
+        <h2 id="title"></h2>
+        <ul id="dynamicTable"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="./externallink.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script> -->
+   
+    
+  </body>
+</html>

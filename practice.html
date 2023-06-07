@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("https://www.talentigelato.com/us/en/faq.html", function(data, status){
+        
+     console.log("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+//       if (hasSchemaMarkup(data)) {
+//   console.log('This site has schema markup!');
+// } else {
+//   console.log('This site does not have schema markup.');
+// }
+
+// if (isSchemaMarkupPresent(data)) {
+//   console.log('Schema markup is present!');
+// } else {
+//   console.log('Schema markup is not present.');
+// }
+
+if (checkSchemaMarkup(JSON.stringify(data))) {
+  console.log("Schema markup is present.");
+} else {
+  console.log("Schema markup is not present.");
+}
+
+
+// function checkSchemaMarkup() {
+//   var schemaTags = document.querySelectorAll('[itemscope][itemtype]');
+//   if (schemaTags.length > 0) {
+//     return true; // schema markup is present
+//   } else {
+//     return false; // schema markup is not present
+//   }
+// }
+
+
+function checkSchemaMarkup() {
+  // Get all script elements on the page
+  var scriptTags = document.getElementsByTagName("script");
+  
+  // Loop through the script tags and check if any of them contain a schema.org JSON-LD markup
+  for (var i = 0; i < scriptTags.length; i++) {
+    var scriptTag = scriptTags[i];
+    if (scriptTag.type === "application/ld+json") {
+      try {
+        var json = JSON.parse(scriptTag.innerHTML);
+        if (json['@context'] === "http://schema.org") {
+          return true;
+        }
+      } catch (e) {
+        // The JSON-LD markup is invalid, so ignore it
+      }
+    }
+  }
+  
+  // If no schema.org JSON-LD markup is found, return false
+  return false;
+}
+
+
+    });
+  });
+});
+
+// function hasSchemaMarkup() {
+//   const scriptTags = document.getElementsByTagName('script');
+//   for (let i = 0; i < scriptTags.length; i++) {
+//     if (scriptTags[i].getAttribute('type') === 'application/ld+json' ) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+
+// function isSchemaMarkupPresent() {
+//   var schemaMarkup = document.querySelector('script[type="application/ld+json"]');
+//   if (schemaMarkup) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+
+
+
+
+
+// fetch('https://www.talentigelato.com/us/en')
+// .then(response => response.text())
+// .then(structuredDataText => {
+//   const script = document.createElement('script');
+//   script.setAttribute('type', 'application/ld+json');
+//   script.textContent = structuredDataText;
+//   document.head.appendChild(script);
+// });
+ 
+</script>
+</head>
+<body>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+
+</body>
+</html>
+
